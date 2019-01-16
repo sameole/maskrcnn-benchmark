@@ -5,6 +5,7 @@ FROM nvidia/cuda:${CUDA}-cudnn${CUDNN}-devel-ubuntu16.04
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
+COPY docker/sources.list /etc/apt/sources.list
 # install basics
 RUN apt-get update -y \
  && apt-get install -y apt-utils git curl ca-certificates bzip2 cmake tree htop bmon iotop g++ \
@@ -32,7 +33,10 @@ RUN conda install -y ipython
 RUN pip install ninja yacs cython matplotlib opencv-python
 
 # Install PyTorch 1.0 Nightly and OpenCV
-RUN conda install -y pytorch-nightly -c pytorch \
+#RUN conda install -y pytorch-nightly -c pytorch \
+# && conda clean -ya
+
+RUN conda install -y pytorch -c pytorch \
  && conda clean -ya
 
 # Install TorchVision master
