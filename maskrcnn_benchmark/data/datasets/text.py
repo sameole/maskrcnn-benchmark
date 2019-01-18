@@ -43,7 +43,7 @@ class TextDataset(torchvision.datasets.coco.CocoDetection):
         self.transforms = transforms
 
     def __getitem__(self, idx):
-        img, anno = super(COCODataset, self).__getitem__(idx)
+        img, anno = super(TextDataset, self).__getitem__(idx)
 
         # filter crowd annotations
         # TODO might be better to add an extra field
