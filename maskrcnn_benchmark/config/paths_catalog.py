@@ -100,7 +100,7 @@ class DatasetCatalog(object):
                 args=args,
             )
 
-        if "coco" in name:
+        elif "coco" in name:
             data_dir = DatasetCatalog.DATA_DIR
             attrs = DatasetCatalog.DATASETS[name]
             args = dict(
