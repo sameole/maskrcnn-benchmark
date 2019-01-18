@@ -95,6 +95,7 @@ class DatasetCatalog(object):
                 root=attrs["img_dir"],
                 ann_file=attrs["ann_file"],
             )
+            print(name,args)
             return dict(
                 factory="TextDataset",
                 args=args,
