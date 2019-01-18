@@ -45,9 +45,9 @@ RUN git clone https://github.com/pytorch/vision.git \
  && python setup.py install
 
 # install pycocotools
-RUN git clone https://github.com/cocodataset/cocoapi.git \
- && cd cocoapi/PythonAPI \
- && python setup.py build_ext install
+#RUN git clone https://github.com/cocodataset/cocoapi.git \
+# && cd cocoapi/PythonAPI \
+# && python setup.py build_ext install
 
 # install PyTorch Detection
 RUN git clone https://github.com/facebookresearch/maskrcnn-benchmark.git \

@@ -5,12 +5,23 @@ import torchvision
 from maskrcnn_benchmark.structures.bounding_box import BoxList
 from maskrcnn_benchmark.structures.segmentation_mask import SegmentationMask
 
+# class ImageDataset(object):
+#     def __init__(self, image_file):
+#         self.image_file = open(image_file, 'rb')
+#         self.lock=multiprocessing.Lock()
+#
+#     def get_image(self, offset, length):
+#         with self.lock:
+#             self.image_file.seek(offset)
+#             image_byte=self.image_file.read(length)
+#         nparr = np.fromstring(image_byte, np.uint8)
+#         return cv2.imdecode(nparr, cv2.IMREAD_UNCHANGED)
 
-class COCODataset(torchvision.datasets.coco.CocoDetection):
+class TextDataset(torchvision.datasets.coco.CocoDetection):
     def __init__(
         self, ann_file, root, remove_images_without_annotations, transforms=None
     ):
-        super(COCODataset, self).__init__(root, ann_file)
+        super(TextDataset, self).__init__(root, ann_file)
         # sort indices for reproducible results
         self.ids = sorted(self.ids)
 

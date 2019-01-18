@@ -7,6 +7,10 @@ import os
 class DatasetCatalog(object):
     DATA_DIR = "datasets"
     DATASETS = {
+        "text_2019_train": {
+            "img_dir": "/disk3/lsxu/torch_all/images",
+            "ann_file": "/disk3/lsxu/torch_all/annotation.json"
+        },
         "coco_2014_train": {
             "img_dir": "coco/train2014",
             "ann_file": "coco/annotations/instances_train2014.json"
@@ -84,6 +88,18 @@ class DatasetCatalog(object):
 
     @staticmethod
     def get(name):
+        if "text" in name:
+            #data_dir = DatasetCatalog.DATA_DIR
+            attrs = DatasetCatalog.DATASETS[name]
+            args = dict(
+                root=attrs["img_dir"],
+                ann_file=attrs["ann_file"],
+            )
+            return dict(
+                factory="TextDataset",
+                args=args,
+            )
+
         if "coco" in name:
             data_dir = DatasetCatalog.DATA_DIR
             attrs = DatasetCatalog.DATASETS[name]
