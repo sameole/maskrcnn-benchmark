@@ -9,7 +9,7 @@ class DatasetCatalog(object):
     DATASETS = {
         "text_2019_train": {
             "img_dir": "/disk3/lsxu/torch_all/images",
-            "ann_file": "/disk3/lsxu/torch_all/annotation.json"
+            "ann_file": "/disk3/lsxu/torch_all/cocoformatJson/receipt_2019_train.json"
         },
         "coco_2014_train": {
             "img_dir": "coco/train2014",
