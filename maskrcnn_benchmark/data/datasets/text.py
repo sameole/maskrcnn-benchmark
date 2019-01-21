@@ -74,8 +74,10 @@ class TextDataset(torchvision.datasets.coco.CocoDetection):
     def get_img_info(self, index):
         img_id = self.id_to_img_map[index]
         img_data = self.coco.imgs[img_id]
-        img = cv2.imread('/disk3/lsxu/torch_all/images/'+ str(img_data['id']) +'.jpg')
+        file_name = '/disk3/lsxu/torch_all/images/' + str(img_data['id']) +'.jpg'
+        img = cv2.imread(file_name)
         img_data['height'] = img.shape[0]
         img_data['width'] = img.shape[1]
-        print('img_data......',img_data)
+        img_data['file_name'] = file_name
+        #print('img_data......',img_data)
         return img_data
