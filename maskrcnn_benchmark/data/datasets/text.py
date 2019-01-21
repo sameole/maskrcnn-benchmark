@@ -1,6 +1,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.
 import torch
 import torchvision
+import cv2
 
 from maskrcnn_benchmark.structures.bounding_box import BoxList
 from maskrcnn_benchmark.structures.segmentation_mask import SegmentationMask
@@ -73,5 +74,8 @@ class TextDataset(torchvision.datasets.coco.CocoDetection):
     def get_img_info(self, index):
         img_id = self.id_to_img_map[index]
         img_data = self.coco.imgs[img_id]
+        img = cv2.imread('/disk3/lsxu/torch_all/images/'+ str(img_data['id']) +'.jpg')
+        img_data['height'] = img.shape[0]
+        img_data['width'] = img.shape[1]
         print('img_data......',img_data)
         return img_data
