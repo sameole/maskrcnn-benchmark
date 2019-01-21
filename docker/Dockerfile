@@ -53,8 +53,8 @@ RUN git clone https://github.com/pytorch/vision.git \
 #RUN git clone https://github.com/facebookresearch/maskrcnn-benchmark.git \
 # && cd maskrcnn-benchmark \
 # && python setup.py build develop
-RUN git clone git@git.tianrang-inc.com:tianshi/mask-rcnn.git \
- && cd mask-rcnn \
- && python setup.py build develop
+#RUN git clone git@git.tianrang-inc.com:tianshi/mask-rcnn.git \
+# && cd mask-rcnn \
+# && python setup.py build develop
 
-WORKDIR /mask-rcnn
+#WORKDIR /mask-rcnn
