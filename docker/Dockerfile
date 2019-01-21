@@ -50,8 +50,11 @@ RUN git clone https://github.com/pytorch/vision.git \
 # && python setup.py build_ext install
 
 # install PyTorch Detection
-RUN git clone https://github.com/facebookresearch/maskrcnn-benchmark.git \
- && cd maskrcnn-benchmark \
+#RUN git clone https://github.com/facebookresearch/maskrcnn-benchmark.git \
+# && cd maskrcnn-benchmark \
+# && python setup.py build develop
+RUN git clone git@git.tianrang-inc.com:tianshi/mask-rcnn.git \
+ && cd mask-rcnn \
  && python setup.py build develop
 
-WORKDIR /maskrcnn-benchmark
+WORKDIR /mask-rcnn
