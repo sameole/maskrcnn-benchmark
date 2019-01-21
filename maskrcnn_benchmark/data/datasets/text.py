@@ -78,6 +78,6 @@ class TextDataset(torchvision.datasets.coco.CocoDetection):
         img = cv2.imread(file_name)
         img_data['height'] = img.shape[0]
         img_data['width'] = img.shape[1]
-        img_data['file_name'] = file_name
+        img_data['file_name'] = str(img_data['id']) +'.jpg'
         #print('img_data......',img_data)
         return img_data
