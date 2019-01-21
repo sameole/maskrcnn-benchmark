@@ -73,4 +73,5 @@ class TextDataset(torchvision.datasets.coco.CocoDetection):
     def get_img_info(self, index):
         img_id = self.id_to_img_map[index]
         img_data = self.coco.imgs[img_id]
+        print('img_data......',img_data)
         return img_data
