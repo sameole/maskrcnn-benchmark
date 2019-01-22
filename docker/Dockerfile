@@ -54,7 +54,7 @@ RUN git clone https://github.com/pytorch/vision.git \
 # && cd maskrcnn-benchmark \
 # && python setup.py build develop
 RUN git clone https://github.com/sameole/maskrcnn-benchmark.git \
- && cd maskrcnn-benchmark \
- && python setup.py build develop
+ && cd maskrcnn-benchmark
+ #&& python setup.py build develop
 
 WORKDIR /maskrcnn-benchmark
